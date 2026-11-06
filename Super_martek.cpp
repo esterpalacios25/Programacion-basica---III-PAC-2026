@@ -22,11 +22,11 @@ int main () {
     int opcion_menu, producto, k, i, edad_cliente, unidades, lineas_carnes;
     double monto, sub_verduras, sub_carnes, sub_licores, subtotal;
     double desc_segundo_carne, desc_sixpack;
-    double pv, pc, pl, pdia, pedad, d_verd, d_carn, d_lic;
+     double pv, pc, pl, pdia, pedad, d_verd, d_carn, d_lic;
     double desc_cliente, desc_dia, desc_edad, descuentos, impuestos, total, dolares;
     cout << fixed << setprecision(2);
 
-    //MENU PRINCIPAL 
+    // MENU PRINCIPAL1
 inicio_menu:
     for (i = 0; i < 10; i++) {           // copia del inventario por si hay que cancelar
         resp_stock[i] = stock[i];
@@ -71,7 +71,7 @@ inicio_menu:
         cout << "Stock actualizado: " << nombres[producto - 1] << " ahora tiene " << stock[producto - 1] << " unidades." << endl;
         goto inicio_menu;
     }
-    // Opcion 1 (compra): los acumuladores empiezan en cero
+    // Opcion 1 (compra):
     unidades = 0;
     lineas_carnes = 0;
     sub_verduras = 0;
@@ -81,7 +81,6 @@ inicio_menu:
     desc_sixpack = 0;
     sexo = 0;
     tipo_cliente = 0;
-    // =================================================================
         cout << "Bienvenido a Super Market!" << endl;
         cout << "INGRESE SU NOMBRE: ";
         cin.ignore(1000, '\n'); 
@@ -90,7 +89,6 @@ inicio_menu:
         if (nombre.empty()) {
             cout << "ERROR: Debe ingresar un nombre para continuar." << endl;
         }
-
 if (nombre.empty()) goto cancelar;   
 while (sexo < 1 || sexo > 3) {
     goto sexo_menu;   // salta el mensaje de error de abajo
@@ -105,7 +103,6 @@ while (sexo < 1 || sexo > 3) {
     cin >> sexo;
     if (cin.fail() || sexo < 1 || sexo > 3) { cin.clear(); cin.ignore(1000, '\n'); cout << "ERROR: Dato incorrecto." << endl; goto cancelar; }   // NUEVO
     }
-
  do
    {
     cout << "Ingrese la edad del cliente: " << endl;
@@ -114,15 +111,12 @@ while (sexo < 1 || sexo > 3) {
     if (edad < 15 || edad > 100) { 
     cout << "Ingrese una edad valida (entre 15 y 100): " << endl;
     }
-    
    } while (edad < 15 || edad > 100);
    edad_cliente = edad;   
-   
    while (tipo_cliente < 1 || tipo_cliente > 3) {
         goto tipo_menu;  
         cout << "ERROR: Debe ingresar una opcion valida (1, 2 o 3)." << endl;
         tipo_menu: ;  
-    
         cout << " seleccione el tipo de cliente: " << endl;
         cout <<"1. Regular" << endl;
         cout <<"2. VIP" << endl;    
@@ -130,7 +124,6 @@ while (sexo < 1 || sexo > 3) {
         cin >> tipo_cliente;
         if (cin.fail() || tipo_cliente < 1 || tipo_cliente > 3) { cin.clear(); cin.ignore(1000, '\n'); cout << "ERROR: Dato incorrecto." << endl; goto cancelar; }   // NUEVO
     }
-
     do {  
         cout << "seleccione dia de la semana: " << endl;
         cout <<"1. Lunes" << endl;      
@@ -148,8 +141,6 @@ while (sexo < 1 || sexo > 3) {
         dia_ok: ; 
     
     }while (dia_semana < 1 || dia_semana > 7);
-    
-
     do {    
     cout <<" seleccione el tipo de producto que desea comprar: " << endl;
     cout <<"1. verduras" << endl;
